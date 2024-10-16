@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Professor Dashboard</h2>
+
+<h3>Overall Statistics</h3>
+<canvas id="overallChart" width="400" height="200"></canvas>
+
+<h3 class="mt-4">Defaulter List (Attendance below 60%)</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Student Name</th>
+            <th>Overall Attendance (%)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for student in defaulters %}
+        <tr>
+            <td>{{ student.name }}</td>
+            <td>{{ student.overall_attendance }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3 class="mt-4">Performance Analysis</h3>
+<div class="row">
+    <div class="col-md-4">
+        <h4>Above Average</h4>
+        <ul>
+            {% for student in above_avg %}
+                <li>{{ student.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <h4>Average</h4>
+        <ul>
+            {% for student in avg_students %}
+                <li>{{ student.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <h4>Below Average</h4>
+        <ul>
+            {% for student in below_avg %}
+                <li>{{ student.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+<script>
+    renderProfessorCharts({{ avg_unit_test }}, {{ avg_end_sem }}, {{ avg_overall_attendance }});
+</script>
+{% endblock %}

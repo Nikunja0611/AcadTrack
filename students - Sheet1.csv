@@ -1,0 +1,5 @@
+id,username,password,role,name,unit_test,end_sem,lab_attendance,overall_attendance
+1,student1,pass123,student,John Doe,85,78,90,95
+2,student2,pass123,student,Jane Smith,65,58,70,60
+3,student3,pass123,student,Emily Davis,45,50,55,50
+4,professor,profpass,professor,Dr. Alan Turing,,,,

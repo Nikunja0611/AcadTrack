@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Your Profile</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <td>{{ student.name }}</td>
+    </tr>
+    <tr>
+        <th>Username</th>
+        <td>{{ student.username }}</td>
+    </tr>
+    <tr>
+        <th>Unit Test Marks</th>
+        <td>{{ student.unit_test }}</td>
+    </tr>
+    <tr>
+        <th>End Sem Marks</th>
+        <td>{{ student.end_sem }}</td>
+    </tr>
+    <tr>
+        <th>Lab Attendance (%)</th>
+        <td>{{ student.lab_attendance }}</td>
+    </tr>
+    <tr>
+        <th>Overall Attendance (%)</th>
+        <td>{{ student.overall_attendance }}</td>
+    </tr>
+</table>
+{% endblock %}
